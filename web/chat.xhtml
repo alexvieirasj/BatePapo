@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+     <ui:composition template="/templates/template.xhtml">
+        <ui:define name="titulo">Bate-Papo Virtual</ui:define>
+        <ui:define name="conteudo">
+        
+        <h:form id="formListar">
+                <h:messages/>
+                <c:if test="#{controleChat.usuario.nome != null}">
+                    <div style="width: 50%; float: end">
+                    <p:dataScroller id="formListar" value="#{controleChat.beanChat.usuarios}" var="obj">
+                        <p:outputLabel value="#{obj.nome}"></p:outputLabel>
+                    </p:dataScroller>
+                    </div>     
+                </c:if>
+               
+                <c:if test="#{controleChat.usuario.nome == null}">
+                    <h:form id="formUsuario">
+                        <p:outputLabel value="#{msgs['usuarios.nome']}" for="txtNome"/>
+                        <p:inputText value="#{controleChat.usuario.nome}" id="txtNome" size="20" maxlength="20"/>
+                        <b:commandButton value="Entrar"
+                                         icon="ui-icon-pencil"
+                                         actionListener="#{controleChat.logarChat()}"
+                                         update=":formListar"/>
+                    </h:form>
+                </c:if>
+                
+                
+                <c:if test="#{controleChat.usuario.nome != null}">
+                    <div align="center">
+                        <p:column headerText="Ação">
+                            <b:commandButton value="Sair"
+                                             icon="ui-icon-pencil"
+                                             class="btn btn-danger"
+                                             actionListener="#{controleChat.logoutChat()}"
+                                             update="formListar"/>
+                        </p:column>
+                    </div>
+                </c:if>
+                
+                
+                <c:if test="#{controleChat.usuario.nome != null}">
+                    <h:panelGroup>
+                        <br/><br/> 
+                        <p:dataScroller value="#{controleChat.beanChat.mensagens}"
+                                                   id="mensagens" var="msg" rows="20" scrollHeight="30">
+                            <div align="right">
+                                <p:outputLabel value="#{msg.horaMensagem}">
+                                    <f:converter converterId="converterCalendar"/>&nbsp;
+                                </p:outputLabel>
+                                <p:outputLabel value="#{msg.usuario.nome}"/>&nbsp;
+                                <p:outputLabel value="#{msg.mensagem}"/>                                  
+                            </div>
+
+                        </p:dataScroller>
+                        
+                        <p:poll interval="4" 
+                                listener="#{controleChat.atualizarMsg()}"
+                                update="mensagens"/>
+                        
+                         <br/><br/><br/><br/>  
+                        <c:if test="#{controleChat.usuario.nome != null}">
+                            <p:outputLabel value="#{msgs['mensagem.titulo']}"/>
+
+                            <p:editor id="txtMsg" value="#{controleChat.mensagem.mensagem}"/>
+
+
+                            &nbsp; <p:column headerText="Ações">
+                                <b:commandButton value="Enviar"
+                                                 icon="ui-icon-plus"
+                                                 class="btn btn-success"
+                                                 actionListener="#{controleChat.adicionaMsg()}"
+                                                 update=":formListar"/>&nbsp;
+                            </p:column>
+                        </c:if>
+
+                    </h:panelGroup>
+                </c:if>
+
+
+            </h:form> 
+        </ui:define>
+    </ui:composition>
+</html>
+
+
