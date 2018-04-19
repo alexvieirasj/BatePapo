@@ -18,8 +18,8 @@ public class Usuarios implements Serializable {
 
     
     private Integer id;
-    @NotBlank(message = "O nome não pode ser em branco")
-    @Length(max = 20, message = "O nome não pode ser maior do que {max} caracteres")
+    @NotBlank(message = "{usuarios.nome.notblank}")
+    @Length(max = 20, message = "{usuarios.nome.length}")
     private String nome;
 
     public Usuarios() {

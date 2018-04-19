@@ -22,7 +22,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @FacesConverter(value = "converterCalendar")
 public class ConversorHora implements Converter{
     
-    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+    SimpleDateFormat sdf = new SimpleDateFormat("(HH:mm:ss)");
 
     @Override //converte da tela para o objeto
     public Object getAsObject(FacesContext fc, UIComponent uic, String string) {

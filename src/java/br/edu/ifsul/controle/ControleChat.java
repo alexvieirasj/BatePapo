@@ -49,6 +49,8 @@ public class ControleChat implements Serializable {
     public void logarChat() {
         if (this.beanChat.testeUsuario(usuario)) {
             usuario.setNome(null);
+               FacesMessage msg = new FacesMessage("Usuário já existe com esse nome no chat!");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
             Map sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
             sessionMap.clear();
         } else {
@@ -60,6 +62,7 @@ public class ControleChat implements Serializable {
     public void logoutChat() { 
         this.beanChat.adicionarMensagem(new Mensagem(usuario.getNome() + " saiu do bate papo"));
         this.beanChat.removerUsuario(usuario);
+        
         Map sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
         sessionMap.clear();
     }

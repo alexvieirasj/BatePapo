@@ -7,36 +7,42 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:view encoding="ISO-8859-1" contentType="text/html" locale="#{controleLocale.currentLocale}">
      <ui:composition template="/templates/template.xhtml">
         <ui:define name="titulo">Bate-Papo Virtual</ui:define>
         <ui:define name="conteudo">
         
+            
         <h:form id="formListar">
                 <h:messages/>
-                <c:if test="#{controleChat.usuario.nome != null}">
-                    <div style="width: 50%; float: end">
+                <c:if test="#{controleChat.usuario.nome != null}"> <!-- Teste para inserir o usuário na lista-->
+                    <div style="width: 52.5%;">
+                    <p:outputLabel value="#{msgs['mensagem.lista']}"/> 
                     <p:dataScroller id="formListar" value="#{controleChat.beanChat.usuarios}" var="obj">
                         <p:outputLabel value="#{obj.nome}"></p:outputLabel>
                     </p:dataScroller>
                     </div>     
                 </c:if>
                
-                <c:if test="#{controleChat.usuario.nome == null}">
+                <c:if test="#{controleChat.usuario.nome == null}"> <!-- Teste para entrar no chat-->
+                    
                     <h:form id="formUsuario">
-                        <p:outputLabel value="#{msgs['usuarios.nome']}" for="txtNome"/>
-                        <p:inputText value="#{controleChat.usuario.nome}" id="txtNome" size="20" maxlength="20"/>
-                        <b:commandButton value="Entrar"
-                                         icon="ui-icon-pencil"
-                                         actionListener="#{controleChat.logarChat()}"
-                                         update=":formListar"/>
+                        <div class="ui-g-12 ui-md-12">
+                            <div class="ui-inputgroup">
+                                <p:outputLabel value="#{msgs['usuarios.nome']}" for="txtNome"/> &nbsp; &nbsp;
+                                <p:inputText value="#{controleChat.usuario.nome}" id="txtNome" size="20" maxlength="20"/>
+                                <p:commandButton value="#{msgs['botao.entrar']}" style="height: 32px" styleClass="white-button"
+                                                 actionListener="#{controleChat.logarChat()}"
+                                                 update=":formListar"/>  
+                            </div>
+                        </div>
                     </h:form>
                 </c:if>
                 
-                
-                <c:if test="#{controleChat.usuario.nome != null}">
-                    <div align="center">
+                <c:if test="#{controleChat.usuario.nome != null}"> <!-- Botão para sair do chat-->
+                    <div align="right">
                         <p:column headerText="Ação">
-                            <b:commandButton value="Sair"
+                            <b:commandButton value="#{msgs['botao.sair']}"
                                              icon="ui-icon-pencil"
                                              class="btn btn-danger"
                                              actionListener="#{controleChat.logoutChat()}"
@@ -48,30 +54,27 @@
                 
                 <c:if test="#{controleChat.usuario.nome != null}">
                     <h:panelGroup>
-                        <br/><br/> 
+                        <br/><br/> <!-- Mensagens dos usuários-->
+                        <p:outputLabel value="#{msgs['mensagem.mensagens']}"/> 
                         <p:dataScroller value="#{controleChat.beanChat.mensagens}"
                                                    id="mensagens" var="msg" rows="20" scrollHeight="30">
                             <div align="right">
                                 <p:outputLabel value="#{msg.horaMensagem}">
                                     <f:converter converterId="converterCalendar"/>&nbsp;
                                 </p:outputLabel>
-                                <p:outputLabel value="#{msg.usuario.nome}"/>&nbsp;
-                                <p:outputLabel value="#{msg.mensagem}"/>                                  
+                                <p:outputLabel value="#{msg.usuario.nome}"/> : &nbsp;
+                                <p:outputLabel escape="true" value="#{msg.mensagem}"/>                                  
                             </div>
-
                         </p:dataScroller>
                         
                         <p:poll interval="4" 
                                 listener="#{controleChat.atualizarMsg()}"
-                                update="mensagens"/>
+                                update="mensagens"/> <!-- Atualização das mensagens-->
                         
                          <br/><br/><br/><br/>  
                         <c:if test="#{controleChat.usuario.nome != null}">
-                            <p:outputLabel value="#{msgs['mensagem.titulo']}"/>
-
+                            <p:outputLabel value="#{msgs['mensagem.titulo']}"/> <!-- Editor de envio de mensagens-->
                             <p:editor id="txtMsg" value="#{controleChat.mensagem.mensagem}"/>
-
-
                             &nbsp; <p:column headerText="Ações">
                                 <b:commandButton value="Enviar"
                                                  icon="ui-icon-plus"
@@ -80,14 +83,12 @@
                                                  update=":formListar"/>&nbsp;
                             </p:column>
                         </c:if>
-
                     </h:panelGroup>
                 </c:if>
-
-
             </h:form> 
         </ui:define>
     </ui:composition>
+    </f:view>       
 </html>
 
 

@@ -23,9 +23,8 @@ import javax.faces.context.FacesContext;
 @Singleton
 public class BeanChat implements Serializable {
 
-     private List<Mensagem> mensagens = new ArrayList<>();
+    private List<Mensagem> mensagens = new ArrayList<>();
     private List<Usuarios> usuarios = new ArrayList<>();
-    private String conversa;
 
     public BeanChat() {
 
@@ -78,14 +77,6 @@ public class BeanChat implements Serializable {
 
     public void setUsuarios(List<Usuarios> usuarios) {
         this.usuarios = usuarios;
-    }
-
-    public String getConversa() {
-        return conversa;
-    }
-
-    public void setConversa(String conversa) {
-        this.conversa = conversa;
     }
 
 }

@@ -16,8 +16,6 @@ import org.hibernate.validator.constraints.NotBlank;
  */
 public class Mensagem implements Serializable {
 
-   /* @NotBlank(message = "A mensagem não pode ser em branca")
-    @Length(max = 100, message = "A mensagem não pode ser maior do que {max} caracteres") */
     private String mensagem;
 
     private Usuarios usuario;
