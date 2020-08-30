@@ -1,2 +1,2 @@
 # BatePapo
-Trabalho Aula de Tópicos Avançados, com um chat que tem entrada, saída e uma lista de usuários que fazem envio de mensagens entre eles.
+Trabalho da Aula de Tópicos Avançados, feito um chat que tem entrada, saída e uma lista de usuários que fazem envio de mensagens entre eles.
