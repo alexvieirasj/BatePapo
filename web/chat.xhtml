@@ -11,8 +11,7 @@
      <ui:composition template="/templates/template.xhtml">
         <ui:define name="titulo">Bate-Papo Virtual</ui:define>
         <ui:define name="conteudo">
-        
-            
+                    
         <h:form id="formListar">
                 <h:messages/>
                 <c:if test="#{controleChat.usuario.nome != null}"> <!-- Teste para inserir o usuário na lista-->
@@ -24,8 +23,7 @@
                     </div>     
                 </c:if>
                
-                <c:if test="#{controleChat.usuario.nome == null}"> <!-- Teste para entrar no chat-->
-                    
+                <c:if test="#{controleChat.usuario.nome == null}"> <!-- Teste para entrar no chat-->                    
                     <h:form id="formUsuario">
                         <div class="ui-g-12 ui-md-12">
                             <div class="ui-inputgroup">
@@ -50,8 +48,7 @@
                         </p:column>
                     </div>
                 </c:if>
-                
-                
+                                
                 <c:if test="#{controleChat.usuario.nome != null}">
                     <h:panelGroup>
                         <br/><br/> <!-- Mensagens dos usuários-->

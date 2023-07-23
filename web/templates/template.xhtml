@@ -10,13 +10,13 @@
     <h:body>
         <b:container style="color: forestgreen">
             <h:form id="formMenu">
-                <b:navBar brand="CHAT">
+                <b:navBar>
                     <b:navbarLinks>
                         <b:navLink value="Inicio" outcome="inicio" style="color: black"/>
-                        <b:dropMenu value="Chat Online">
-                            <b:navCommandLink value="Chat Online" outcome="chat"/>
+                        <b:dropMenu value="Entrar no Sala">
+                            <b:navCommandLink value="Entrar no Chat Online" outcome="chat"/>
                         </b:dropMenu>
-                        <b:dropMenu value="Idiomas">
+                        <b:dropMenu value="Seleção de Idiomas">
                                 <b:navCommandLink value="Português"
                                                   update=":conteudo"
                                                   actionListener="#{controleLocale.portugueseLocale()}"/>
