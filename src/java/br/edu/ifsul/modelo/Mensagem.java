@@ -10,10 +10,6 @@ import java.util.Calendar;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
-/**
- *
- * @author Renato
- */
 public class Mensagem implements Serializable {
 
     private String mensagem;

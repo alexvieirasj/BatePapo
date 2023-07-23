@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.edu.ifsul.controle;
 
 import br.edu.ifsul.ejb.BeanChat;
@@ -18,10 +13,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
-/**
- *
- * @author Renato
- */
 @Named(value = "controleChat")
 @SessionScoped
 public class ControleChat implements Serializable {
@@ -43,24 +34,24 @@ public class ControleChat implements Serializable {
         this.getMensagem().setUsuario(getUsuario());
         this.beanChat.adicionarMensagem(getMensagem());
         this.setMensagem(new Mensagem());
-
     }
 
     public void logarChat() {
         if (this.beanChat.testeUsuario(usuario)) {
             usuario.setNome(null);
-               FacesMessage msg = new FacesMessage("Usuário já existe com esse nome no chat!");
+            FacesMessage msg = new FacesMessage("Usuário já existe com esse nome no chat!");
             FacesContext.getCurrentInstance().addMessage(null, msg);
+            
             Map sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
             sessionMap.clear();
         } else {
             this.beanChat.adicionaUsuario(usuario);
-            this.beanChat.adicionarMensagem(new Mensagem(usuario.getNome() + " entrou no bate papo"));
+            this.beanChat.adicionarMensagem(new Mensagem(usuario.getNome() + " entrou no bate papo!"));
         }
     }
 
     public void logoutChat() { 
-        this.beanChat.adicionarMensagem(new Mensagem(usuario.getNome() + " saiu do bate papo"));
+        this.beanChat.adicionarMensagem(new Mensagem(usuario.getNome() + " saiu do bate papo!"));
         this.beanChat.removerUsuario(usuario);
         
         Map sessionMap = FacesContext.getCurrentInstance().getExternalContext().getSessionMap();
@@ -98,5 +89,4 @@ public class ControleChat implements Serializable {
     public List<Mensagem> atualizarMsg() {
         return beanChat.getMensagens();
     }
-
 }

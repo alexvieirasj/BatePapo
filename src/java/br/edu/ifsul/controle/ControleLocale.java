@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.edu.ifsul.controle;
 
 import java.io.Serializable;
@@ -11,17 +6,12 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
 
-/**
- *
- * @author alexv
- */
 @ManagedBean(name = "controleLocale")
 public class ControleLocale implements Serializable{
     
     private Locale currentLocale = new Locale("pt", "BR");
     
     public ControleLocale(){
-        
     }
 
     public void englishLocale(){
