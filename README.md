@@ -47,11 +47,11 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 ```bash
 
     # Clonar os repositórios
-    $ https://github.com/alexvieirasj/BatePapo
+    $ git clone git@github.com:alexvieirasj/BatePapo.git
     
     # Todas as bibliotecas estão adicionados no projeto dentro da pasta lib
 
-    # Abrir o projeto executar via Netbeans, Intelij ou Eclipse
+    # Abrir o projeto via Netbeans, Intelij ou Eclipse e executar
     
     # running on port 8080
 ```
