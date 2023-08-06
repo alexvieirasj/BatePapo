@@ -2,20 +2,25 @@
   Bate Papo 💬
 </h1>
 
+<p align="center">
+    <img alt="Origem Projeto" src="https://img.shields.io/badge/Project-Personal-informational">
+    <img  alt="College Project" src="https://img.shields.io/badge/Course-College-important">
+    <img alt="Difficult Level" src="https://img.shields.io/badge/level-hard-critical">
+    <img alt="GitHub Last Commit" src="https://img.shields.io/github/last-commit/alexvieirasj/BatePapo">
+    <img alt="Issue" src="https://img.shields.io/bitbucket/issues/alexvieirasj/BatePapo?style=critical">
+    <img alt="Pull Request" src="https://img.shields.io/bitbucket/pr-raw/alexvieirasj/BatePapo?style=critical">
+</p>
+
 ## 💻 Detalhes do projeto
 
 O sistema foi desenvolvido durante um trabalho da faculdade no ano de 2018, na aula de Tópicos Avançados feito em parceria com o [Renato Anunciação](https://github.com/renatoanunciacao). O projeto que tem por objetivo disponibilizar um sistema onde seja possível ter um modelo de 
-chat online, com entrada e saida de multiplos usuários com envio de mensagens entre eles.
+chat online, com entrada e saida de multiplos usuários com envio de mensagens entre eles. Feito com objetivo de aprimorar as habilidades de interpretação e resoluções de problemas conforme solicitado na elaboração do projeto. A ideia é permitir os usuários cadastrarem
+um nome único no chat, enviar mensagens para todos de forma pública, permitir entrada e saída dos usuários mostrando notificações, visualizar todos os usuários da sala, internacionalização de mensagens
+e usar as tecnologias EJB (Enterprise Java Beans) e JSF (Java Server Faces). 
 
 <h1 align="center">
     <img alt="Capa Projeto" title="CapaProjeto" src="./demonstracao-aplicacao.gif"/>
 </h1>
-
-## 📚 Informações sobre o projeto
-
-Feito com objetivo de aprimorar as habilidades de interpretação e resoluções de problemas conforme solicitado na elaboração do projeto. A ideia é permitir os usuários cadastrarem
-um nome único no chat, enviar mensagens para todos de forma pública, permitir entrada e saída dos usuários mostrando notificações, visualizar todos os usuários da sala, internacionalização de mensagens
-e usar as tecnologias EJB (Enterprise Java Beans) e JSF (Java Server Faces). 
 
 ## :rocket: Tecnologias utilizadas no projeto
 
