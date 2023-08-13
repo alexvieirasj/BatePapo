@@ -68,7 +68,7 @@ Lista de pessoas que contribuíram para este projeto:
 <table>
   <tr>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/alexvieirasj">
         <img src="https://avatars.githubusercontent.com/u/23263907" width="100px;" alt="Foto de Alex Vieira no GitHub"/><br>
         <sub>
           <b>Alex Vieira</b>
@@ -76,7 +76,7 @@ Lista de pessoas que contribuíram para este projeto:
       </a>
     </td>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/renatoanunciacao">
         <img src="https://avatars.githubusercontent.com/u/25929250" width="100px;" alt="Foto de Renato Anunciação no GitHub"/><br>
         <sub>
           <b>Renato Anunciação</b>
